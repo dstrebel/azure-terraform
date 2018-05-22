@@ -1,0 +1,6 @@
+.config/
+../.config/
+*.tfstate.*
+.terraform/
+../.terraform/
+*.tfplan*
