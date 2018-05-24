@@ -1,6 +1,7 @@
 .config/
 ../.config/
 *.tfstate.*
+../*.tfstate.*
 .terraform/
 ../.terraform/
 *.tfplan*
