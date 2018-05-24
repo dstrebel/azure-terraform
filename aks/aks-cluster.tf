@@ -14,7 +14,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     admin_username = "azureuser"
 
     ssh_key {
-      key_data = "${chomp(file("~/.ssh/id_rsa"))}"
+      key_data = "${chomp(file("~/.ssh/id_rsa.pub"))}"
     }
   }
 
