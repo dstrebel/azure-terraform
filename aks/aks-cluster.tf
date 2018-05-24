@@ -1,3 +1,5 @@
+# Deployes AKS cluster from vatiables file
+
 resource "azurerm_resource_group" "rg" {
   name     = "${var.azure_resource_group_name}"
   location = "${var.location}"
