@@ -2,18 +2,17 @@
 # will bootstrap the configuration of Flux such that all the manifests from the
 # repository will be automatically applied when the cluster is created.
 
-data "aws_eks_cluster" "cluster" {
+data "azurerm_kubernetes_cluster" "demo" {
   name = "${var.eks_cluster_name}"
 }
 
-data "aws_eks_cluster_auth" "cluster" {
+data "azurerm_kubernetes_cluster" "demo" {
   name = "${var.eks_cluster_name}"
 }
 
 provider "kubernetes" {
-  host                   = "${data.aws_eks_cluster.cluster.endpoint}"
-  cluster_ca_certificate = "${base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)}"
-  token                  = "${data.aws_eks_cluster_auth.cluster.token}"
+  host                   = "${data.azurerm_kubernetes_cluster.demo.fqdn}"
+  cluster_ca_certificate = "${base64decode(data.azurerm_kubernetes_cluster.demo.kube_config_raw)}"
   load_config_file       = false
 }
 

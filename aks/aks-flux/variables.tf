@@ -25,12 +25,12 @@ variable "public_ssh_key_path" {
   default     = "~/.ssh/id_rsa.pub"
 }
 
-variable "vnetIPCIDR" {
+variable "address_space" {
   default = "172.20.0.0/16"
   description = "The IP address CIDR block to be assigned to the entride Azure Virtual Network. If connecting to another peer or to you On-Premises netwokr this CIDR block MUST NOT overlap with existing BGP learned routes"
 }
 
-variable "subnetIPCIDR" {
+variable "subnet" {
   default = "172.20.0.0/20"
   description = "The IP address CIDR block to be assigned to the subnet that AKS nodes and Pods will ge their IP addresses from. This is a subset CIDR of the vnetIPCIDR"
 }
@@ -95,4 +95,16 @@ variable "dns_service_ip" {
 variable "docker_bridge_cidr" {
   default = "172.22.0.1/16"
   description = "The IP address CIDR block to be assigned to the Docker container bridge on each node. If connecting to another peer or to you On-Premises network this CIDR block SHOULD NOT overlap with existing BGP learned routes"
+}
+variable "github_organization" {
+  description = "Name of the Github Organisation"
+}
+
+variable "github_repository_name" {
+  description = "Name of the Github repository for Flux"
+}
+
+variable "github_token" {
+  dscription = "github token to authenticate"
+  
 }
